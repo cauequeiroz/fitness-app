@@ -1,0 +1,6 @@
+GridLayout {
+    background-image: url('res://app_background');
+    background-size: cover;
+    padding: 0 20;
+    height: 100%;
+}

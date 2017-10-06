@@ -1,11 +1,18 @@
-import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
+import * as application from 'application';
+import { NgModule } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { AppRoutingModule } from "./app.routing";
-import { AppComponent } from "./app.component";
+import { NativeScriptFacebookModule } from "nativescript-facebook/angular";
 
-import { ItemService } from "./item/item.service";
-import { ItemsComponent } from "./item/items.component";
-import { ItemDetailComponent } from "./item/item-detail.component";
+import { AppComponent } from "./app.component";
+import { LoginComponent } from './pages/login/login.component';
+import { VideoListComponent } from './pages/video-list/video-list.component';
+
+let nsFacebook = require('nativescript-facebook');
+
+application.on(application.launchEvent, function (args) {
+    nsFacebook.init("177869632788924");
+});
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -14,24 +21,17 @@ import { ItemDetailComponent } from "./item/item-detail.component";
 // import { NativeScriptHttpModule } from "nativescript-angular/http";
 
 @NgModule({
-    bootstrap: [
-        AppComponent
-    ],
     imports: [
         NativeScriptModule,
+        NativeScriptFacebookModule,
         AppRoutingModule
     ],
     declarations: [
         AppComponent,
-        ItemsComponent,
-        ItemDetailComponent
+        LoginComponent,
+        VideoListComponent
     ],
-    providers: [
-        ItemService
-    ],
-    schemas: [
-        NO_ERRORS_SCHEMA
-    ]
+    bootstrap: [ AppComponent ]
 })
 /*
 Pass your application module to the bootstrapModule function located in main.ts to start your app

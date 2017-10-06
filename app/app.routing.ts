@@ -2,15 +2,17 @@ import { NgModule } from "@angular/core";
 import { NativeScriptRouterModule } from "nativescript-angular/router";
 import { Routes } from "@angular/router";
 
-import { AppComponent } from './app.component';
-import { ItemsComponent } from "./item/items.component";
-import { ItemDetailComponent } from "./item/item-detail.component";
+import { LoginComponent } from './pages/login/login.component';
+import { VideoListComponent } from './pages/video-list/video-list.component';
+// import { ItemsComponent } from "./item/items.component";
+// import { ItemDetailComponent } from "./item/item-detail.component";
 
 const routes: Routes = [
-    // { path: "", redirectTo: "/items", pathMatch: "full" },
-    { path: "", component: AppComponent },
-    { path: "items", component: ItemsComponent },
-    { path: "item/:id", component: ItemDetailComponent },
+    { path: "", redirectTo: "/login", pathMatch: "full" },
+    { path: "login", component: LoginComponent },
+    { path: "video-list", component: VideoListComponent },
+    // { path: "items", component: ItemsComponent },
+    // { path: "item/:id", component: ItemDetailComponent },
 ];
 
 @NgModule({
