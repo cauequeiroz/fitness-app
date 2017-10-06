@@ -1,4 +1,5 @@
-<StackLayout>
+<StackLayout *ngIf="!isLoading">
     <Label text="Token:" fontWeight="bold"></Label>
     <Label [text]="token"></Label>
 </StackLayout>
+<ActivityIndicator [busy]="isLoading"></ActivityIndicator>
